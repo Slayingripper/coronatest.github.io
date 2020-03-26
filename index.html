@@ -1,206 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>
-Islamic Quiz
-</title>
-<script language=JavaScript>
-var i=1, num_Of_Question=7;
-questions = new Array() 
-questions[1]="How many verses are there in Quran?";
-questions[2] ="Which Surah is called Heart of Quran";
-questions[3] ="Who is the first wife of Prophet Muhammad pbuh?";
-questions[4] ="Who is the first person on the Earth?";
-questions[5] ="Where is Kabaa located";
-questions[6] ="Which surah is is sunnah to read in the morning?";
-questions[7] ="Among following, which fruit mentioned in the Quran?";
-
-answerA=new Array()
-answerA[1]="6000";
-answerA[2]="Surah Yasin";
-answerA[3]="Aisha";
-answerA[4]="Prophet Ibrahim";
-answerA[5]="Kuwait";
-answerA[6]="Surah Sajda";
-answerA[7]="Olive";
-
-answerB=new Array()
-answerB[1]="6666";
-answerB[2]="Surah Rehman";
-answerB[3]="Khadija";
-answerB[4]="Prophet Adam";
-answerB[5]="Iraq";
-answerB[6]="Surah Yasin";
-answerB[7]="Mango";
-
-answerC=new Array()
-answerC[1]="7000";
-answerC[2]="Surah Fatiha";
-answerC[3]="Juweriya";
-answerC[4]="Prophet Yunus";
-answerC[5]="Saudi Arabia";
-answerC[6]="Surah Baqara";
-answerC[7]="Banana";
-
-rightAnswer=new Array()
-rightAnswer[1]=2;
-rightAnswer[2]=1;
-rightAnswer[3]=2;
-rightAnswer[4]=2;
-rightAnswer[5]=3;
-rightAnswer[6]=2;
-rightAnswer[7]=1;
-var score=0;
-function preQuestion()
-{
-var radios = document.getElementsByName("quiz");
-var option;
-
-    for (var j = 0; j < radios.length; j++) {       
-        if (radios[j].checked) {
-           option=radios[j].value;
-		radios[j].checked=false;
-            break;
-        }
-    }
-
-	if(option==rightAnswer[i])
-	{
-		score=score+1;
-		
-	}
-	
-	i--;	
-	if(i==0)
-	{
-	alert("This is first Question");
-	i++;
-	}
-	
-	var x=document.getElementById('myTable').rows
-    	var y=x[0].cells
-    	y[0].innerHTML=i + ".\t";
-	y[1].innerHTML=questions[i];
-	getOptionA();
-}
-function nextQuestion()
-{
-
-var radios = document.getElementsByName("quiz");
-var option;
-
-    for (var j = 0; j < radios.length; j++) {       
-        if (radios[j].checked) {
-           	option=radios[j].value;
-		radios[j].checked=false;
-            	break;
-        }
-    }
-
-	if(option==rightAnswer[i])
-	{
-		score=score+1;
-		
-	}
-	i++;
-	if(i>num_Of_Question)
-	{
-	alert("This is last Question");
-	i--;
-	}	
-	var x=document.getElementById('myTable').rows
-    	var y=x[0].cells
-    	y[0].innerHTML=i + ".\t";
-	y[1].innerHTML=questions[i];
-	getOptionA();
-}
-function getOptionA()
-{
-var x=document.getElementById('myTable').rows
-    	var y=x[1].cells
-    	y[1].innerHTML=answerA[i];
-getOptionB();
-}
-function getOptionB()
-{
-var x=document.getElementById('myTable').rows
-    	var y=x[2].cells
-    	y[1].innerHTML=answerB[i];
-getOptionC();
-}
-function getOptionC()
-{
-var x=document.getElementById('myTable').rows
-    	var y=x[3].cells
-    	y[1].innerHTML=answerC[i];
-}
-
-function showScore() //score is updated only after clicking next or previous button not by clicking the answer and checking in order to know whether your answer is correct or not.
-{
-var radios = document.getElementsByName("quiz");
-
-
-for (var j = 0; j < radios.length; j++) {       
-        
-           
-		radios[j].checked=false;
-        
-    }
- alert("Your score is "+ score);
-}
-</script>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<form name=first method=post style="width:500px; height:300px; color:blue">
-<fieldset>
-<legend align=center> Islamic Quiz</legend>
-<table id=myTable style=" color:#ff0ff0">
-<tr>
-<td ><script language=JavaScript>
-//var i=1;
-document.write(i + ".\t");
-</script>
-</td>
-<td>
-<script language=JavaScript>
-document.write(questions[i]);
-</script>
-
-</td>
-</tr>
-<tr><td>
-<input type = "radio" value="1" name = "quiz"></td>
-<td>
-<script language=JavaScript>
-document.write(answerA[i]);
-</script></td></tr>
-<tr><td>
-<input type = "radio" value ="2" name = "quiz">
-</td><td>
-<script language=JavaScript>
-document.write(answerB[i]);
-</script></td></tr>
-<tr>
-<td>
-<input type = "radio" value ="3" name = "quiz"></td>
-<td>
-<script language=JavaScript>
-document.write(answerC[i]);
-</script></td></tr>
-<tr>
-<!__<input type=button value=Quit onclick=quit()>
-</tr>
-</table>
-<a href=javascript:preQuestion();><img src=Images/GREEN2.JPG style="position:absolute; left:50px" width=50 height=50></a>
-<a href=javascript:showScore();><img src=Images/images.jpeg  style="position:relative;left:150px" width=50 height=50>									
-<a href=javascript:nextQuestion();><img src=Images/GREEN.JPG  style="position:relative; left:200px" width=50 height=50>
-</a>											
-
-</fieldset>
-</form>
+    <div id="container">
+        <div id="start">Start Quiz!</div>
+        <div id="quiz" style="display: none">
+            <div id="question"></div>
+            <div id="qImg"></div>
+            <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+            </div>
+            <div id="timer">
+                <div id="counter"></div>
+                <div id="btimeGauge"></div>
+                <div id="timeGauge"></div>
+            </div>
+            <div id="progress"></div>
+        </div>
+        <div id="scoreContainer" style="display: none"></div>
+    </div>
+    <script src="quiz.js"></script>
 </body>
 </html>
-
-
-
-
