@@ -14,26 +14,30 @@ const scoreDiv = document.getElementById("scoreContainer");
 // create our questions
 let questions = [
     {
-        question : "What does HTML stand for?",
-        imgSrc : "img/html.png",
-        choiceA : "Correct",
-        choiceB : "Wrong",
-        choiceC : "Wrong",
-        correct : "A"
-    },{
-        question : "What does CSS stand for?",
-        imgSrc : "img/css.png",
-        choiceA : "Wrong",
-        choiceB : "Correct",
-        choiceC : "Wrong",
+        question : "Did you develop a cough in the last 14 days?",
+        imgSrc : "img/cough.jpg",
+        choiceA : "Yes",
+        choiceB : "No",
         correct : "B"
     },{
-        question : "What does JS stand for?",
-        imgSrc : "img/js.png",
-        choiceA : "Wrong",
-        choiceB : "Wrong",
-        choiceC : "Correct",
-        correct : "C"
+        question : "Are you Experiencing a Fever?",
+        imgSrc : "img/fever.jpg",
+        choiceA : "Yes",
+        choiceB : "No",
+        correct : "B"
+    },{
+        question : "Are you experiencing Shortness of Breath?",
+        imgSrc : "img/breath.jpg",
+        choiceA : "Yes",
+        choiceB : "No",
+        correct : "B"
+    },
+	{
+        question : "Have you traveled outside of Cyprus in the last 14 days?",
+        imgSrc : "img/travel.jpg",
+        choiceA : "Yes",
+        choiceB : "No",
+        correct : "B"
     }
 ];
 
@@ -56,7 +60,7 @@ function renderQuestion(){
     qImg.innerHTML = "<img src="+ q.imgSrc +">";
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
-    choiceC.innerHTML = q.choiceC;
+   // choiceC.innerHTML = q.choiceC;
 }
 
 start.addEventListener("click",startQuiz);
@@ -83,7 +87,7 @@ function renderProgress(){
 function renderCounter(){
     if(count <= questionTime){
         counter.innerHTML = count;
-        timeGauge.style.width = count * gaugeUnit + "px";
+        //timeGauge.style.width = count * gaugeUnit + "px";
         count++
     }else{
         count = 0;
@@ -119,7 +123,7 @@ function checkAnswer(answer){
         renderQuestion();
     }else{
         // end the quiz and show the score
-        clearInterval(TIMER);
+        //clearInterval(TIMER);
         scoreRender();
     }
 }

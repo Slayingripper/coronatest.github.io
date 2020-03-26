@@ -16,13 +16,13 @@ body{
     font-size: 1.5em;
     font-weight: bolder;
     word-break: break-all;
-    width:100px;
+    width:200px;
     height:150px;
     border : 2px solid lightgrey;
     text-align: center;
     cursor: pointer;
     position: absolute;
-    left:300px;
+    left:250px;
     top:50px;
     color : lightgrey;
 }
