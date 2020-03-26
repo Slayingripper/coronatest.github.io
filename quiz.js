@@ -45,7 +45,7 @@ let count = 0;
 const questionTime = 10; // 10s
 const gaugeWidth = 150; // 150px
 const gaugeUnit = gaugeWidth / questionTime;
-let TIMER;
+//let TIMER;
 let score = 0;
 
 // render a question
@@ -68,7 +68,7 @@ function startQuiz(){
     quiz.style.display = "block";
     renderProgress();
     renderCounter();
-    TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
+    //TIMER = setInterval(renderCounter,1000); // 1000ms = 1s
 }
 
 // render progress
@@ -94,7 +94,7 @@ function renderCounter(){
             renderQuestion();
         }else{
             // end the quiz and show the score
-            clearInterval(TIMER);
+          //  clearInterval(TIMER);
             scoreRender();
         }
     }
